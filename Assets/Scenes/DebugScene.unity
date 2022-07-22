@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Subject: {fileID: 380473459}
   recorder: {fileID: 9627293}
-  switcher: 0
+  IsReplaying: 0
 --- !u!1 &1355983518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Subject: {fileID: 1355983520}
   recorder: {fileID: 812193840}
-  switcher: 0
+  IsReplaying: 0
 --- !u!1 &1563268470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,7 +1424,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
 --- !u!212 &1710927366
 SpriteRenderer:
   m_ObjectHideFlags: 0

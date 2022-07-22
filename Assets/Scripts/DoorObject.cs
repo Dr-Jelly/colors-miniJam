@@ -37,7 +37,7 @@ public class DoorObject : MonoBehaviour
     public void ResetDoor()
     {
         if (InitialState == false) CloseDoor();
-        if (InitialState == true) OpenDoor();
+        else if (InitialState == true) OpenDoor();
     }
 
     private void OnDisable()

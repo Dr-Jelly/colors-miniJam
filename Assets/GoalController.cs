@@ -15,5 +15,7 @@ public class GoalController : MonoBehaviour
     public void CompleteLevel()
     {
         print("Yippieh!");
+        characterTarget.Die();
+        GameController.Instance.NextChar();
     }
 }

@@ -12,7 +12,6 @@ public class Recorder : MonoBehaviour
         if (IsRecording) RecordInput(InputController.Instance.Movement);
     }
 
-    [ContextMenu("StartRecording")]
     public void StartRecording()
     {
         if (inputRecording == null)
@@ -23,7 +22,6 @@ public class Recorder : MonoBehaviour
         else print("Recorder already has an input recording!");
     }
 
-    [ContextMenu("StopRecording")]
     public void StopRecording()
     {
         if (IsRecording)
@@ -47,6 +45,7 @@ public class Recorder : MonoBehaviour
             Debug.DrawLine(lastPosition, nextPosition, Color.red, 3f);
 
             lastPosition = nextPosition;
+            print("debug");
         }
     }
 }
