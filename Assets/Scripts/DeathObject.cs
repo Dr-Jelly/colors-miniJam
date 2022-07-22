@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class DeathObject : MonoBehaviour
 {
-    [SerializeField] private string Tag;
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(Tag))
-            Kill(collision.gameObject);
+        PlayableCharacter c = collision.gameObject.GetComponent<PlayableCharacter>();
+        if (c != null) Kill(c);
     }
 
-    private void Kill(GameObject character)
+    private void Kill(PlayableCharacter character)
     {
-        Destroy(character);
+        character.Die();
         GameController.Instance.ChangeState(GameController.GameState.Replay);
+        GameController.Instance.NextChar();
     }
 }
