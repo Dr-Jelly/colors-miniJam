@@ -42,14 +42,18 @@ public class GameController : Singleton<GameController>
 
     public void NextChar()
     {
-        if (CurrentCharacterIndex >= CharacterList.Count) return;
+        // Replay all previous characters.
+        if (CurrentCharacterIndex >= CharacterList.Count) return; //Leave if index is out of bounds
         CharacterList[CurrentCharacterIndex].recorder.StopRecording();
-        CharacterList[CurrentCharacterIndex].spawnPoint.Reset();
-        CharacterList[CurrentCharacterIndex].rePlayer.switcher = true;
+        for (int i = 0; i <= CurrentCharacterIndex; i++)
+        {
+            CharacterList[i].spawnPoint.Reset();
+            CharacterList[i].rePlayer.StartRePlay();
+        }
         CurrentCharacterIndex++;
+        TurnEnded?.Invoke();
 
         if (CurrentCharacterIndex >= CharacterList.Count) return;
-        TurnEnded?.Invoke();
         CharacterList[CurrentCharacterIndex].recorder.StartRecording();
     }
 

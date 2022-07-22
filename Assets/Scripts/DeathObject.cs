@@ -13,9 +13,12 @@ public class DeathObject : MonoBehaviour
     private void Kill(PlayableCharacter character)
     {
         character.Die();
-        if (GameController.Instance.CharacterList[GameController.Instance.CurrentCharacterIndex] == character)
+        if (GameController.Instance.CurrentCharacterIndex < GameController.Instance.CharacterList.Count)
         {
-            GameController.Instance.NextChar();
+            if (GameController.Instance.CharacterList[GameController.Instance.CurrentCharacterIndex] == character)
+            {
+                GameController.Instance.NextChar();
+            }
         }
     }
 }
