@@ -33,11 +33,7 @@ public class Recorder : MonoBehaviour
         else print("Recorder is already not recording!");
     }
 
-    public void RecordInput(Vector2 input)
-    {
-        inputRecording.Enqueue(input);
-        print(input);
-    }
+    public void RecordInput(Vector2 input) => inputRecording.Enqueue(input);
 
     [ContextMenu("DrawDebug")]
     public void DrawDebug()

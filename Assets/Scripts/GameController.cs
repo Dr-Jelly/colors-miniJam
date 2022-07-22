@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameController : Singleton<GameController>
 {
@@ -48,6 +49,7 @@ public class GameController : Singleton<GameController>
         CurrentCharacterIndex++;
 
         if (CurrentCharacterIndex >= CharacterList.Count) return;
+        TurnEnded?.Invoke();
         CharacterList[CurrentCharacterIndex].recorder.StartRecording();
     }
 
@@ -57,4 +59,8 @@ public class GameController : Singleton<GameController>
         CharacterList[CurrentCharacterIndex].MovementUpdate(InputController.Instance.Movement);
     }
 
+    // ----------------- Character
+    private UnityEvent TurnEnded = new UnityEvent();
+    public void SubOnTurnEnd(UnityAction action) => TurnEnded.AddListener(action);
+    public void UnSubOnTurnEnd(UnityAction action) => TurnEnded.RemoveListener(action);
 }
