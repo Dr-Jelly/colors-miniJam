@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputController : MonoBehaviour
+public class InputController : Singleton<InputController>
 {
     [Header("References")]
     public PlayerInput Input;
