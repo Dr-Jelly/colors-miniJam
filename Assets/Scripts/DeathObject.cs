@@ -13,7 +13,9 @@ public class DeathObject : MonoBehaviour
     private void Kill(PlayableCharacter character)
     {
         character.Die();
-        GameController.Instance.ChangeState(GameController.GameState.Replay);
-        GameController.Instance.NextChar();
+        if (GameController.Instance.CharacterList[GameController.Instance.CurrentCharacterIndex] == character)
+        {
+            GameController.Instance.NextChar();
+        }
     }
 }
