@@ -45,7 +45,7 @@ public class PlayableCharacter : MonoBehaviour
         bool isMoving = false;
 
         // Is Moving
-        if (direction == Vector2.zero) isMoving = false;
+        if (direction != Vector2.zero) isMoving = true;
 
         // Facing Direction
         if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) // X Axis is used
