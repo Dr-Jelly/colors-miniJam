@@ -47,7 +47,7 @@ public class GameController : Singleton<GameController>
         CharacterList[CurrentCharacterIndex].recorder.StopRecording();
         for (int i = 0; i <= CurrentCharacterIndex; i++)
         {
-            CharacterList[i].spawnPoint.Reset();
+            CharacterList[i].Reset();
             CharacterList[i].rePlayer.StartRePlay();
         }
         CurrentCharacterIndex++;
