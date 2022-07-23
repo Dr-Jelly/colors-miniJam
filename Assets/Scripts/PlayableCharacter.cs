@@ -30,7 +30,7 @@ public class PlayableCharacter : MonoBehaviour
 
     public void MovementUpdate(Vector2 direction)
     {
-        if (IsDead) return;
+        if (IsDead || HasWon) return;
         direction.Normalize();
         Face(direction);
 
@@ -65,7 +65,9 @@ public class PlayableCharacter : MonoBehaviour
     public void Reset()
     {
         IsDead = false;
+        HasWon = false;
         animator.SetBool("Dead", false);
+        animator.SetBool("Won", false);
         spawnPoint.Reset();
     }
 

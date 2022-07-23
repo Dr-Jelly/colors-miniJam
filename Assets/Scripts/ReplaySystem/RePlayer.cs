@@ -25,7 +25,6 @@ public class RePlayer : MonoBehaviour
                 Subject.MovementUpdate(inputRecording.Dequeue());
             else
             {
-                Subject.Die();
                 IsReplaying = false;
             }
         }
