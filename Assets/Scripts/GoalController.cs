@@ -14,7 +14,7 @@ public class GoalController : MonoBehaviour
 
     public void CompleteLevel()
     {
-        characterTarget.Die();
+        characterTarget.Win();
         Invoke("Continue", 2f);
     }
 
