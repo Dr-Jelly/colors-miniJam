@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,16 +7,22 @@ public class PlayableCharacter : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] public RePlayer rePlayer;
-    [SerializeField] public Recorder recorder;
-    [SerializeField] public SpawnPointController spawnPoint;
-    [SerializeField] public Animator animator;
+    [SerializeField] private RePlayer rePlayer;
+    [SerializeField] private Recorder recorder;
+    [SerializeField] private SpawnPointController spawnPoint;
+    [SerializeField] private Animator animator;
 
     [Header("Movement Parameters")]
     [SerializeField] private float speed;
     [Range(0.1f, 10)] [Tooltip("Velocity Changerate - Lower value makes the character movement smoother")]
     [SerializeField] private float Acceleration;
 
+    // =====[ References ]====== //
+    public void StartRecordingInput() => recorder.StartRecording();
+    public void StopRecordingInput() => recorder.StopRecording();
+    public void StartRePlayingInput() => rePlayer.StartRePlay(recorder.GetRecording());
+
+    // =====[ Physics ]====== //
 
     public void MovementUpdate(Vector2 direction)
     {
@@ -29,24 +35,27 @@ public class PlayableCharacter : MonoBehaviour
 
     public void Face(Vector2 direction)
     {
+        int xAxis = 0;
+        int yAxis = 0;
+        bool isMoving = false;
+
         // Is Moving
-        if (direction != Vector2.zero) animator.SetBool("IsMoving", true);
-        else animator.SetBool("IsMoving", false);
+        if (direction == Vector2.zero) isMoving = false;
 
         // Facing Direction
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        {
-            if (direction.x > 0) animator.SetInteger("xInput", 1);
-            else animator.SetInteger("xInput", -1);
-            animator.SetInteger("yInput", 0);
-        }
-        else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
-        {
-            if (direction.y > 0) animator.SetInteger("yInput", 1);
-            else animator.SetInteger("yInput", -1);
-            animator.SetInteger("xInput", 0);
-        }
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y)) // X Axis is used
+            xAxis = direction.x > 0 ? 1 : -1; // x größer als 0? also 1 // ansonsten -1
+
+        else if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y)) // Y Axis is used
+            yAxis = direction.y > 0 ? 1 : -1; // y größer als 0? also 1 // ansonsten -1
+
+        animator.SetBool("IsMoving", isMoving);
+        animator.SetInteger("yInput", yAxis);
+        animator.SetInteger("xInput", xAxis);
     }
+
+
+    // =====[ Events ]====== //
 
     public void Reset()
     {

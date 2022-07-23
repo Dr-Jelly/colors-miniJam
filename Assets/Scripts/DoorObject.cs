@@ -36,12 +36,9 @@ public class DoorObject : MonoBehaviour
 
     public void ResetDoor()
     {
-        if (InitialState == false) CloseDoor();
-        else if (InitialState == true) OpenDoor();
+        if (InitialState == true) OpenDoor();
+        else if (InitialState == false) CloseDoor();
     }
 
-    private void OnDisable()
-    {
-        GameController.Instance.UnSubOnTurnEnd(ResetDoor);
-    }
+    private void OnDisable() => GameController.Instance.UnSubOnTurnEnd(ResetDoor);
 }

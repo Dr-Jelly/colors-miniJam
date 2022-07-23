@@ -32,38 +32,46 @@ public class GameController : Singleton<GameController>
     }
 
     // ----------------- Character
-    public List<PlayableCharacter> CharacterList;
-    public int CurrentCharacterIndex;
+    [SerializeField] private List<PlayableCharacter> CharacterList;
+    [SerializeField] private int CurrentCharacterIndex;
+
+    public PlayableCharacter CurrentChar()
+    {
+        if (CurrentCharacterIndex < CharacterList.Count)
+        {
+            return CharacterList[CurrentCharacterIndex];
+        }
+        return null;
+    }
 
     public void AwakeCharacter()
     {
-        CharacterList[CurrentCharacterIndex].recorder.StartRecording();
+        CurrentChar()?.StartRecordingInput();
     }
 
     public void NextChar()
     {
         // Replay all previous characters.
-        if (CurrentCharacterIndex >= CharacterList.Count) return; //Leave if index is out of bounds
-        CharacterList[CurrentCharacterIndex].recorder.StopRecording();
+        if (CurrentChar() == null) return; //Leave if index is out of bounds
+        CurrentChar().StopRecordingInput();
+
         for (int i = 0; i <= CurrentCharacterIndex; i++)
         {
             CharacterList[i].Reset();
-            CharacterList[i].rePlayer.StartRePlay();
+            CharacterList[i].StartRePlayingInput();
         }
-        CurrentCharacterIndex++;
         TurnEnded?.Invoke();
 
-        if (CurrentCharacterIndex >= CharacterList.Count) return;
-        CharacterList[CurrentCharacterIndex].recorder.StartRecording();
+        CurrentCharacterIndex++;
+        CurrentChar()?.StartRecordingInput();
     }
 
     public void CharacterUpdate()
     {
-        if (CurrentCharacterIndex >= CharacterList.Count) return;
-        CharacterList[CurrentCharacterIndex].MovementUpdate(InputController.Instance.Movement);
+        CurrentChar()?.MovementUpdate(InputController.Instance.Movement);
     }
 
-    // ----------------- Character
+    // ----------------- Turns
     private UnityEvent TurnEnded = new UnityEvent();
     public void SubOnTurnEnd(UnityAction action) => TurnEnded.AddListener(action);
     public void UnSubOnTurnEnd(UnityAction action) => TurnEnded.RemoveListener(action);

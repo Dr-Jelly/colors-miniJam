@@ -6,24 +6,17 @@ public class DeathObject : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayableCharacter c = collision.gameObject.GetComponent<PlayableCharacter>();
-        if (c != null) Kill(c);
+        PlayableCharacter character = collision.gameObject.GetComponent<PlayableCharacter>();
+        if (character != null) Kill(character);
     }
 
     private void Kill(PlayableCharacter character)
     {
         character.Die();
-        if (GameController.Instance.CurrentCharacterIndex < GameController.Instance.CharacterList.Count)
-        {
-            if (GameController.Instance.CharacterList[GameController.Instance.CurrentCharacterIndex] == character)
-            {
-                Invoke("Continue", 3f);
-            }
-        }
+
+        if (GameController.Instance.CurrentChar() == character)
+            Invoke("Continue", 3f);
     }
 
-    public void Continue()
-    {
-        GameController.Instance.NextChar();
-    }
+    private void Continue() => GameController.Instance.NextChar();
 }

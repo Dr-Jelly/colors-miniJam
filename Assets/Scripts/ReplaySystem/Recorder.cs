@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class Recorder : MonoBehaviour
 {
-    public Queue<Vector2> inputRecording;
-    public bool IsRecording;
+    [SerializeField] private Queue<Vector2> recording;
+    [SerializeField] private bool IsRecording;
+
+    public Queue<Vector2> GetRecording() => recording;
 
     private void FixedUpdate()
     {
         if (IsRecording) RecordInput(InputController.Instance.Movement);
     }
 
+    private void RecordInput(Vector2 input) => recording.Enqueue(input);
+
     public void StartRecording()
     {
-        if (inputRecording == null)
+        if (recording == null)
         {
-            inputRecording = new Queue<Vector2>();
+            recording = new Queue<Vector2>();
             IsRecording = true;
         }
         else print("Recorder already has an input recording!");
@@ -31,13 +35,12 @@ public class Recorder : MonoBehaviour
         else print("Recorder is already not recording!");
     }
 
-    public void RecordInput(Vector2 input) => inputRecording.Enqueue(input);
 
     [ContextMenu("DrawDebug")]
     public void DrawDebug()
     {
         Vector2 lastPosition = Vector2.zero;
-        foreach (var input in inputRecording)
+        foreach (var input in recording)
         {
             if (input == Vector2.zero) break;//Skips all empty inputs (decreases lines drawn)
 
