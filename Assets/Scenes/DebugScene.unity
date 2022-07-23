@@ -1427,7 +1427,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   WasPressed: 0
-  ButtonPressedSprite: {fileID: 0}
+  ButtonPressedSprite: {fileID: -296017328593241320, guid: 6778e0b50ab7f16469c40f36ebebd9fb, type: 3}
 --- !u!1 &1629130291
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,8 +1608,8 @@ MonoBehaviour:
   doorCollider: {fileID: 2075096593}
   IsOpen: 0
   InitialState: 0
-  OpenedColor: {r: 0, g: 0, b: 0, a: 0}
-  ClosedColor: {r: 0, g: 0, b: 0, a: 0}
+  OpenedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 0.2509804}
+  ClosedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
 --- !u!61 &2075096593
 BoxCollider2D:
   m_ObjectHideFlags: 0
