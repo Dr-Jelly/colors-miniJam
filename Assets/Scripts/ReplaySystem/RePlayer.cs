@@ -4,17 +4,15 @@ using UnityEngine;
 
 public class RePlayer : MonoBehaviour
 {
-    public PlayableCharacter Subject;
-    public Recorder recorder;
-    public Queue<Vector2> inputQueue;
+    [SerializeField] private PlayableCharacter Subject;
+    [SerializeField] private Queue<Vector2> inputRecording;
+    [SerializeField] private bool IsReplaying = false;
 
-    public bool IsReplaying = false;
-
-    public void StartRePlay()
+    public void StartRePlay(Queue<Vector2> recording)
     {
-        if (recorder.inputRecording?.Count > 0)
+        if (recording?.Count > 0)
         {
-            inputQueue = new Queue<Vector2>(recorder.inputRecording);
+            inputRecording = new Queue<Vector2>(recording); //Copy instead of reference
             IsReplaying = true;
         }
     }
@@ -23,8 +21,8 @@ public class RePlayer : MonoBehaviour
     {
         if (IsReplaying)
         {
-            if (inputQueue?.Count > 0)
-                Subject.MovementUpdate(inputQueue.Dequeue());
+            if (inputRecording?.Count > 0)
+                Subject.MovementUpdate(inputRecording.Dequeue());
             else
             {
                 print("stop");

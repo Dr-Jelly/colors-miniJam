@@ -8,14 +8,15 @@ public class GoalController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayableCharacter c = collision.gameObject.GetComponent<PlayableCharacter>();
-        if (c == characterTarget) CompleteLevel();
+        PlayableCharacter character = collision.gameObject.GetComponent<PlayableCharacter>();
+        if (character == characterTarget) CompleteLevel();
     }
 
     public void CompleteLevel()
     {
-        print("Yippieh!");
         characterTarget.Die();
-        GameController.Instance.NextChar();
+        Invoke("Continue", 3f);
     }
+
+    private void Continue() => GameController.Instance.NextChar();
 }
