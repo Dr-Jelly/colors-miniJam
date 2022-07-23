@@ -17,6 +17,10 @@ public class PlayableCharacter : MonoBehaviour
     [Range(0.1f, 10)] [Tooltip("Velocity Changerate - Lower value makes the character movement smoother")]
     [SerializeField] private float Acceleration;
 
+    [Header("Other Parameters")]
+    [SerializeField] private bool IsDead = false;
+    [SerializeField] private bool HasWon = false;
+
     // =====[ References ]====== //
     public void StartRecordingInput() => recorder.StartRecording();
     public void StopRecordingInput() => recorder.StopRecording();
@@ -26,6 +30,7 @@ public class PlayableCharacter : MonoBehaviour
 
     public void MovementUpdate(Vector2 direction)
     {
+        if (IsDead) return;
         direction.Normalize();
         Face(direction);
 
@@ -59,14 +64,24 @@ public class PlayableCharacter : MonoBehaviour
 
     public void Reset()
     {
+        IsDead = false;
         animator.SetBool("Dead", false);
         spawnPoint.Reset();
     }
 
     public void Die()
     {
+        IsDead = true;
         rb.velocity = Vector2.zero;
         Face(Vector2.zero);
         animator.SetBool("Dead", true);
+    }
+
+    public void Win()
+    {
+        HasWon = true;
+        rb.velocity = Vector2.zero;
+        Face(Vector2.zero);
+        animator.SetBool("Won", true);
     }
 }

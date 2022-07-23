@@ -15,7 +15,7 @@ public class DeathObject : MonoBehaviour
         character.Die();
 
         if (GameController.Instance.CurrentChar() == character)
-            Invoke("Continue", 3f);
+            Invoke("Continue", 2f);
     }
 
     private void Continue() => GameController.Instance.NextChar();

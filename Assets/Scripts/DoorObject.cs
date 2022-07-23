@@ -7,10 +7,13 @@ public class DoorObject : MonoBehaviour
     [SerializeField] private Collider2D doorCollider;
     [SerializeField] private bool IsOpen;
     [SerializeField] private bool InitialState;
+    [SerializeField] private Color OpenedColor;
+    [SerializeField] private Color ClosedColor;
 
     private void Awake()
     {
         InitialState = IsOpen;
+        SetColor();
         GameController.Instance.SubOnTurnEnd(ResetDoor);
     }
 
@@ -20,8 +23,8 @@ public class DoorObject : MonoBehaviour
 
         IsOpen = true;
         doorCollider.enabled = false;
-        //Do Animation stuff
-        GetComponent<SpriteRenderer>().color = Color.green;
+
+        SetColor();
     }
 
     public void CloseDoor()
@@ -30,14 +33,20 @@ public class DoorObject : MonoBehaviour
 
         IsOpen = false; 
         doorCollider.enabled = true;
-        //Do other Animation stuff
-        GetComponent<SpriteRenderer>().color = Color.red;
+
+        SetColor();
     }
 
     public void ResetDoor()
     {
         if (InitialState == true) OpenDoor();
         else if (InitialState == false) CloseDoor();
+    }
+
+    public void SetColor()
+    {
+        if (IsOpen) GetComponent<SpriteRenderer>().color = OpenedColor;
+        else GetComponent<SpriteRenderer>().color = ClosedColor;
     }
 
     private void OnDisable() => GameController.Instance.UnSubOnTurnEnd(ResetDoor);
