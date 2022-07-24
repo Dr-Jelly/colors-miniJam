@@ -10,6 +10,7 @@ public class PlayableCharacter : MonoBehaviour
     [SerializeField] private RePlayer rePlayer;
     [SerializeField] private Recorder recorder;
     [SerializeField] private SpawnPointController spawnPoint;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Animator animator;
 
     [Header("Movement Parameters")]
@@ -59,7 +60,6 @@ public class PlayableCharacter : MonoBehaviour
         animator.SetInteger("yInput", yAxis);
         animator.SetInteger("xInput", xAxis);
     }
-
 
     // =====[ Events ]====== //
 

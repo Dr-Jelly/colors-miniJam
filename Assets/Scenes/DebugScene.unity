@@ -286,6 +286,7 @@ MonoBehaviour:
   rePlayer: {fileID: 1333451469}
   recorder: {fileID: 9627293}
   spawnPoint: {fileID: 485130349}
+  spriteRenderer: {fileID: 2147018382}
   animator: {fileID: 2147018381}
   speed: 4
   Acceleration: 2
@@ -1103,6 +1104,10 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: b01b0dbad8f080c4bb17618f7b5e4321, type: 2}
   - name: 5
     material: {fileID: 2100000, guid: bdb667057d415394cbc5f9b4e29d183a, type: 2}
+  - name: 6
+    material: {fileID: 2100000, guid: 0585453a39ba9e0478713bfda9d3b78e, type: 2}
+  - name: 7
+    material: {fileID: 2100000, guid: 00a50cfef0cd18e48af6fe5364cb200f, type: 2}
   Obstacles: {fileID: 2102460779}
 --- !u!4 &968799539
 Transform:
@@ -1199,6 +1204,7 @@ MonoBehaviour:
   rePlayer: {fileID: 1434450517}
   recorder: {fileID: 812193840}
   spawnPoint: {fileID: 390656781}
+  spriteRenderer: {fileID: 844280777}
   animator: {fileID: 844280776}
   speed: 4
   Acceleration: 2
@@ -3486,7 +3492,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 00a50cfef0cd18e48af6fe5364cb200f, type: 2}
+  - {fileID: 2100000, guid: 1cfb34169b8d7c34db48b027e0feafae, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
