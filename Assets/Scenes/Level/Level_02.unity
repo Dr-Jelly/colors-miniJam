@@ -151,7 +151,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -313,7 +313,7 @@ Transform:
   - {fileID: 2102460780}
   - {fileID: 1731115379}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787338351
 GameObject:
@@ -490,8 +490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   CharacterList:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4227479022505537019}
+  - {fileID: 8528408917172876221}
   CurrentCharacterIndex: 0
   Colors:
   - name: 0
@@ -522,7 +522,7 @@ Transform:
   m_Children:
   - {fileID: 787338352}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1629130291
 GameObject:
@@ -550,9 +550,19 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8789154661371471649}
+  - {fileID: 5983838931820823849}
+  - {fileID: 2712046608560646927}
+  - {fileID: 8248212946879167581}
+  - {fileID: 3498034445579425667}
+  - {fileID: 7682553151830495968}
+  - {fileID: 8768016114082351113}
+  - {fileID: 1688305270567012338}
+  - {fileID: 2427769542776050971}
+  - {fileID: 1064599513483545352}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1731115378
 GameObject:
@@ -3404,7 +3414,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1cfb34169b8d7c34db48b027e0feafae, type: 2}
+  - {fileID: 2100000, guid: 3555b0e3380a08a4395b13d94cc7f342, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5408,11 +5418,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064599513483545351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.5, z: 1.5}
+  m_LocalPosition: {x: 3.5, y: -2.5, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1064599513483545353
 SpriteRenderer:
@@ -5433,7 +5443,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdb667057d415394cbc5f9b4e29d183a, type: 2}
+  - {fileID: 2100000, guid: b01b0dbad8f080c4bb17618f7b5e4321, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5479,11 +5489,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnButtonActivate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8768016114082351114}
+        m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
+        m_MethodName: CloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1688305270567012337}
+        m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
+        m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnButtonDeActivate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8768016114082351114}
+        m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
+        m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1688305270567012337}
+        m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
+        m_MethodName: CloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   WasPressed: 0
+  InitialState: 0
   ButtonNotPressedSprite: {fileID: -22804317248558295, guid: 6778e0b50ab7f16469c40f36ebebd9fb, type: 3}
   ButtonPressedSprite: {fileID: 8129276003047779963, guid: 6778e0b50ab7f16469c40f36ebebd9fb, type: 3}
 --- !u!1 &1688305270567012334
@@ -5499,7 +5558,7 @@ GameObject:
   - component: {fileID: 1688305270567012336}
   - component: {fileID: 1688305270567012337}
   m_Layer: 0
-  m_Name: Door (3)
+  m_Name: Red Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5546,8 +5605,8 @@ MonoBehaviour:
   doorCollider: {fileID: 1688305270567012336}
   IsOpen: 0
   InitialState: 0
-  OpenedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 0.2509804}
-  ClosedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
+  OpenedColor: {r: 1, g: 0.5058824, b: 0.4431373, a: 0.2509804}
+  ClosedColor: {r: 1, g: 0.5058824, b: 0.4431373, a: 1}
 --- !u!4 &1688305270567012338
 Transform:
   m_ObjectHideFlags: 0
@@ -5556,11 +5615,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1688305270567012334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5, y: -2.5, z: 1.5}
+  m_LocalPosition: {x: 1.5, y: -2.5, z: 1.5}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1688305270567012339
 SpriteRenderer:
@@ -5603,7 +5662,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
+  m_Color: {r: 1, g: 0.5058824, b: 0.4431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5672,11 +5731,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnButtonActivate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3498034445579425664}
+        m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
+        m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7682553151830495971}
+        m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
+        m_MethodName: CloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnButtonDeActivate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3498034445579425664}
+        m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
+        m_MethodName: CloseDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7682553151830495971}
+        m_TargetAssemblyTypeName: DoorObject, Assembly-CSharp
+        m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   WasPressed: 0
+  InitialState: 0
   ButtonNotPressedSprite: {fileID: -22804317248558295, guid: 6778e0b50ab7f16469c40f36ebebd9fb, type: 3}
   ButtonPressedSprite: {fileID: 8129276003047779963, guid: 6778e0b50ab7f16469c40f36ebebd9fb, type: 3}
 --- !u!212 &2427769542776050970
@@ -5698,7 +5806,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3555b0e3380a08a4395b13d94cc7f342, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5741,8 +5849,8 @@ Transform:
   m_LocalPosition: {x: -3.5, y: 2.5, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2712046608560646923
 GameObject:
@@ -5757,7 +5865,7 @@ GameObject:
   - component: {fileID: 2712046608560646925}
   - component: {fileID: 2712046608560646924}
   m_Layer: 0
-  m_Name: Goal
+  m_Name: Goal Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5775,7 +5883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7306589229ea9084dafbab3e54065772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterTarget: {fileID: 0}
+  characterTarget: {fileID: 8528408917172876221}
 --- !u!58 &2712046608560646925
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5811,7 +5919,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b01b0dbad8f080c4bb17618f7b5e4321, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5854,8 +5962,8 @@ Transform:
   m_LocalPosition: {x: -5.5071936, y: -2.5172205, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3498034445579425664
 MonoBehaviour:
@@ -5872,8 +5980,8 @@ MonoBehaviour:
   doorCollider: {fileID: 3498034445579425665}
   IsOpen: 0
   InitialState: 0
-  OpenedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 0.2509804}
-  ClosedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
+  OpenedColor: {r: 0.38431376, g: 0.5686275, b: 1, a: 0.2509804}
+  ClosedColor: {r: 0.38431376, g: 0.5686275, b: 1, a: 1}
 --- !u!61 &3498034445579425665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5941,7 +6049,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
+  m_Color: {r: 0.38431376, g: 0.5686275, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5962,8 +6070,8 @@ Transform:
   m_LocalPosition: {x: -1.5, y: 2.5, z: 1.5}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3498034445579425695
 GameObject:
@@ -5978,7 +6086,7 @@ GameObject:
   - component: {fileID: 3498034445579425665}
   - component: {fileID: 3498034445579425664}
   m_Layer: 0
-  m_Name: Door (1)
+  m_Name: Blue Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6099,7 +6207,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1cfb34169b8d7c34db48b027e0feafae, type: 2}
+  - {fileID: 2100000, guid: 3555b0e3380a08a4395b13d94cc7f342, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6188,7 +6296,7 @@ GameObject:
   - component: {fileID: 4227479022505536999}
   - component: {fileID: 4227479022505537019}
   m_Layer: 0
-  m_Name: Character (1)
+  m_Name: Blue
   m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6246,7 +6354,7 @@ Transform:
   - {fileID: 4227479021267248964}
   - {fileID: 4227479022081071876}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4227479022505537019
 MonoBehaviour:
@@ -6263,7 +6371,7 @@ MonoBehaviour:
   rb: {fileID: 4227479022505536999}
   rePlayer: {fileID: 4227479021267248965}
   recorder: {fileID: 4227479022137039637}
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 5983838931820823848}
   spriteRenderer: {fileID: 8528408918895461696}
   animator: {fileID: 4227479022081071877}
   speed: 4
@@ -6283,7 +6391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90b37a58f5b89c47b3566bde499b06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Subject: {fileID: 0}
+  Subject: {fileID: 4227479022505537019}
 --- !u!4 &5983838931820823849
 Transform:
   m_ObjectHideFlags: 0
@@ -6291,12 +6399,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5983838931820823855}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.5, y: 2.5, z: 1.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5983838931820823854
 SpriteRenderer:
@@ -6361,7 +6469,7 @@ GameObject:
   - component: {fileID: 5983838931820823854}
   - component: {fileID: 5983838931820823848}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: Spawn Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6375,11 +6483,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7682553151830495996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -2.5, z: 1.5}
+  m_LocalPosition: {x: -1.5, y: -2.5, z: 1.5}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7682553151830495969
 SpriteRenderer:
@@ -6422,7 +6530,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
+  m_Color: {r: 0.38431376, g: 0.5686275, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6471,10 +6579,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorCollider: {fileID: 7682553151830495970}
-  IsOpen: 0
+  IsOpen: 1
   InitialState: 0
-  OpenedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 0.2509804}
-  ClosedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
+  OpenedColor: {r: 0.38431376, g: 0.5686275, b: 1, a: 0.2509804}
+  ClosedColor: {r: 0.38431376, g: 0.5686275, b: 1, a: 1}
 --- !u!1 &7682553151830495996
 GameObject:
   m_ObjectHideFlags: 0
@@ -6488,7 +6596,7 @@ GameObject:
   - component: {fileID: 7682553151830495970}
   - component: {fileID: 7682553151830495971}
   m_Layer: 0
-  m_Name: Door
+  m_Name: Blue Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6507,7 +6615,7 @@ GameObject:
   - component: {fileID: 8248212946879167583}
   - component: {fileID: 8248212946879167582}
   m_Layer: 0
-  m_Name: Goal (1)
+  m_Name: Goal Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6532,7 +6640,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3555b0e3380a08a4395b13d94cc7f342, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6575,8 +6683,8 @@ Transform:
   m_LocalPosition: {x: 5.5, y: 2.5, z: 1.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8248212946879167582
 MonoBehaviour:
@@ -6590,7 +6698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7306589229ea9084dafbab3e54065772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterTarget: {fileID: 0}
+  characterTarget: {fileID: 4227479022505537019}
 --- !u!58 &8248212946879167583
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6620,7 +6728,7 @@ GameObject:
   - component: {fileID: 8528408917172876193}
   - component: {fileID: 8528408917172876221}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Red
   m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6662,7 +6770,7 @@ Transform:
   - {fileID: 8528408918635559170}
   - {fileID: 8528408918895461698}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8528408917172876221
 MonoBehaviour:
@@ -6679,8 +6787,8 @@ MonoBehaviour:
   rb: {fileID: 8528408917172876193}
   rePlayer: {fileID: 8528408918635559171}
   recorder: {fileID: 8528408917341078867}
-  spawnPoint: {fileID: 0}
-  spriteRenderer: {fileID: 0}
+  spawnPoint: {fileID: 8789154661371471648}
+  spriteRenderer: {fileID: 8528408918895461696}
   animator: {fileID: 8528408918895461699}
   speed: 4
   Acceleration: 2
@@ -6811,7 +6919,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1cfb34169b8d7c34db48b027e0feafae, type: 2}
+  - {fileID: 2100000, guid: b01b0dbad8f080c4bb17618f7b5e4321, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6935,7 +7043,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
+  m_Color: {r: 1, g: 0.5058824, b: 0.4431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6956,8 +7064,8 @@ Transform:
   m_LocalPosition: {x: 1.5, y: 2.5, z: 1.5}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8768016114082351114
 MonoBehaviour:
@@ -6974,8 +7082,8 @@ MonoBehaviour:
   doorCollider: {fileID: 8768016114082351115}
   IsOpen: 1
   InitialState: 0
-  OpenedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 0.2509804}
-  ClosedColor: {r: 0.3921569, g: 0.92549026, b: 0.3254902, a: 1}
+  OpenedColor: {r: 1, g: 0.5058824, b: 0.4431373, a: 0.2509804}
+  ClosedColor: {r: 1, g: 0.5058824, b: 0.4431373, a: 1}
 --- !u!61 &8768016114082351115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7015,7 +7123,7 @@ GameObject:
   - component: {fileID: 8768016114082351115}
   - component: {fileID: 8768016114082351114}
   m_Layer: 0
-  m_Name: Door (2)
+  m_Name: Red Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7033,7 +7141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90b37a58f5b89c47b3566bde499b06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Subject: {fileID: 0}
+  Subject: {fileID: 8528408917172876221}
 --- !u!4 &8789154661371471649
 Transform:
   m_ObjectHideFlags: 0
@@ -7041,12 +7149,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8789154661371471655}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.5, y: -2.5, z: 1.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 1629130292}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8789154661371471654
 SpriteRenderer:
@@ -7111,7 +7219,7 @@ GameObject:
   - component: {fileID: 8789154661371471654}
   - component: {fileID: 8789154661371471648}
   m_Layer: 0
-  m_Name: SpawnPoint (1)
+  m_Name: Spawn Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

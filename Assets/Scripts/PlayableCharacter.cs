@@ -61,6 +61,15 @@ public class PlayableCharacter : MonoBehaviour
         animator.SetInteger("xInput", xAxis);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<PlayableCharacter>(out PlayableCharacter otherCharacter))
+        {
+            this.Die();
+            otherCharacter.Die();
+        }
+    }
+
     // =====[ Events ]====== //
 
     public void Reset()
