@@ -71,7 +71,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5934590002980436385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5934590002607738707}
@@ -133,6 +133,7 @@ MonoBehaviour:
   rePlayer: {fileID: 5934590003914797826}
   recorder: {fileID: 5934590002607738706}
   spawnPoint: {fileID: 0}
+  spriteRenderer: {fileID: 0}
   animator: {fileID: 5934590003638095682}
   speed: 4
   Acceleration: 2

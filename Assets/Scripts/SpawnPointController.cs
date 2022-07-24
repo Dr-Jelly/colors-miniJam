@@ -7,5 +7,9 @@ public class SpawnPointController : MonoBehaviour
     public PlayableCharacter Subject;
 
     private void Awake() => Reset();
-    public void Reset() => Subject.transform.position = this.transform.position;
+    public void Reset()
+    {
+        Vector3 newPosition = new Vector3(this.transform.position.x, this.transform.position.y, 0);
+        Subject.transform.position = newPosition;
+    }
 }

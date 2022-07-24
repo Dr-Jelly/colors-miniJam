@@ -56,9 +56,12 @@ public class GameController : Singleton<GameController>
         if (CurrentChar() == null) return; //Leave if index is out of bounds
         CurrentChar().StopRecordingInput();
 
+        foreach (var character in CharacterList)
+        {
+            character.Reset();
+        }
         for (int i = 0; i <= CurrentCharacterIndex; i++)
         {
-            CharacterList[i].Reset();
             CharacterList[i].StartRePlayingInput();
         }
         TurnEnded?.Invoke();
