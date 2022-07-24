@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "d6106847-330a-4bb4-8dc2-5a6005f6fc2a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -347,12 +356,12 @@
                 },
                 {
                     "name": "",
-                    "id": "5e9cf24e-dc23-4ca7-bca2-cb5bd410f171",
-                    "path": "<Mouse>/leftButton",
+                    "id": "4bc4fd93-e46e-4a66-9259-085b1f8cf537",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Enter",
+                    "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

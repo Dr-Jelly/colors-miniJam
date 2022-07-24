@@ -10,4 +10,9 @@ public class SceneController : Singleton<SceneController>
         print(sceneName);
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

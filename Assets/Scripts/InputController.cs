@@ -14,6 +14,7 @@ public class InputController : Singleton<InputController>
     public bool Enter => Input.actions["Enter"].WasPerformedThisFrame();
     public bool Next => Input.actions["Next"].WasPerformedThisFrame();
     public bool Undo => Input.actions["Undo"].WasPerformedThisFrame();
+    public bool Restart => Input.actions["Restart"].WasPerformedThisFrame();
 
     public void OnMove(InputAction.CallbackContext callback)
     {

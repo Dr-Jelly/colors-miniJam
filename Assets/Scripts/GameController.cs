@@ -25,9 +25,15 @@ public class GameController : Singleton<GameController>
             UndoTurn();
         }
 
-        if (InputController.Instance.Enter && CheckWinCondition())
+        if (InputController.Instance.Enter)
         {
             NextLevel(NextLevelName);
+        }
+
+
+        if (InputController.Instance.Restart)
+        {
+            SceneController.Instance.ReloadScene();
         }
     }
 
@@ -47,8 +53,8 @@ public class GameController : Singleton<GameController>
     }
 
     // ----------------- Character
-    [SerializeField] private List<PlayableCharacter> CharacterList;
-    [SerializeField] private int CurrentCharacterIndex;
+    [SerializeField] public List<PlayableCharacter> CharacterList;
+    [SerializeField] public int CurrentCharacterIndex;
 
     public PlayableCharacter CurrentChar()
     {
@@ -68,6 +74,7 @@ public class GameController : Singleton<GameController>
     {
         // Replay all previous characters.
         if (CurrentChar() == null) return; //Leave if index is out of bounds
+        print("next");
 
         foreach (var character in CharacterList)
         {
@@ -105,16 +112,36 @@ public class GameController : Singleton<GameController>
     {
         if (CurrentChar() == null) return; //Leave if index is out of bounds
 
-        foreach (var character in CharacterList)
+        if (CurrentChar().NearSpawn())
         {
-            character.Reset();
+            if (CurrentCharacterIndex < 1) return;
+            CurrentCharacterIndex--;
+
+            PaintObstacles(CurrentChar().Color);
+            foreach (var character in CharacterList)
+            {
+                character.Reset();
+            }
+            for (int i = 0; i < CurrentCharacterIndex; i++)
+            {
+                CharacterList[i].StartRePlayingInput();
+            }
+            TurnEnded?.Invoke();
+            CurrentChar().StartRecordingInput();
         }
-        for (int i = 0; i < CurrentCharacterIndex; i++)
+        else
         {
-            CharacterList[i].StartRePlayingInput();
+            foreach (var character in CharacterList)
+            {
+                character.Reset();
+            }
+            for (int i = 0; i < CurrentCharacterIndex; i++)
+            {
+                CharacterList[i].StartRePlayingInput();
+            }
+            TurnEnded?.Invoke();
+            CurrentChar().StartRecordingInput();
         }
-        TurnEnded?.Invoke();
-        CurrentChar().StartRecordingInput();
     }
 
     public void NextLevel(string levelName)
@@ -158,9 +185,15 @@ public class GameController : Singleton<GameController>
         }
         else
         {
-            if (CharacterList[CurrentCharacterIndex] != null)
+            int numOfGoalsReached = 0;
+            for (int i = 0; i <= CurrentCharacterIndex; i++)
+            {
+                if (i < CharacterList.Count && CharacterList[i].HasWon == true) numOfGoalsReached++;
+            }
+            if (numOfGoalsReached == CurrentCharacterIndex + 1)
             {
                 Invoke("NextChar", 2f);
+                print("won?");
             }
         }
     }
@@ -187,6 +220,7 @@ public class GameController : Singleton<GameController>
 public struct ColorCapsule
 {
     public ColorName name;
+    public Color color;
     public Material material;
 }
 

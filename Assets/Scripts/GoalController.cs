@@ -26,14 +26,8 @@ public class GoalController : MonoBehaviour
     {
         HasBeenReached = true;
         Subject.Win();
-        if (GameController.Instance.CheckWinCondition())
-        {
-            GameController.Instance.GoalReached();
-        }
-        else if (GameController.Instance.CurrentChar() == Subject)
-        {
-            Invoke("Continue", 2f);
-        }
+
+        GameController.Instance.GoalReached();
     }
 
     private void Continue() => GameController.Instance.NextChar();

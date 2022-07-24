@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: yellow_material
+  m_Name: pink_material
   m_Shader: {fileID: -6465566751694194690, guid: 03f66219b317c3b4585b916265152878, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -37,5 +37,5 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_7d8b96556df044169c60e3172659dd6e: {r: 0.9433962, g: 0.9167732, b: 0.14684942, a: 0}
+    - Color_7d8b96556df044169c60e3172659dd6e: {r: 1, g: 0.504717, b: 0.7983664, a: 0}
   m_BuildTextureStacks: []

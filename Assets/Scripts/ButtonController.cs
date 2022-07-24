@@ -7,6 +7,7 @@ public class ButtonController : MonoBehaviour
 {
     [SerializeField] private ColorName color;
     [SerializeField] private PlayableCharacter Subject;
+    [SerializeField] private bool ForAllCharacters;
     [SerializeField] private UnityEvent OnButtonActivate;
     [SerializeField] private UnityEvent OnButtonDeActivate;
     [SerializeField] private bool WasPressed = false;
@@ -28,7 +29,7 @@ public class ButtonController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayableCharacter c = collision.gameObject.GetComponent<PlayableCharacter>();
-        if (c == Subject) PressButton();
+        if (c == Subject || (c != null && ForAllCharacters)) PressButton();
     }
 
     public void PressButton()

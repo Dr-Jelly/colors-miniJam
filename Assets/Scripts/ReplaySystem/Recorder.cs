@@ -37,7 +37,6 @@ public class Recorder : MonoBehaviour
         {
             IsRecording = false;
         }
-        else print("Recorder is already not recording!");
     }
 
 

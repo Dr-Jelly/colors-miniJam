@@ -27,6 +27,14 @@ public class PlayableCharacter : MonoBehaviour
     public void StartRecordingInput() => recorder.StartRecording();
     public void StopRecordingInput() => recorder.StopRecording();
     public void StartRePlayingInput() => rePlayer.StartRePlay(recorder.GetRecording());
+    public bool NearSpawn()
+    {
+        if (Vector2.Distance(transform.position, spawnPoint.transform.position) <= 0.5)
+        {
+            return true;
+        }
+        return false;
+    }
 
     // =====[ Physics ]====== //
 
