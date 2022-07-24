@@ -493,6 +493,7 @@ MonoBehaviour:
   - {fileID: 4227479022505537019}
   - {fileID: 8528408917172876221}
   CurrentCharacterIndex: 0
+  NextLevelName: 
   Colors:
   - name: 0
     material: {fileID: 2100000, guid: 1cfb34169b8d7c34db48b027e0feafae, type: 2}
@@ -509,6 +510,9 @@ MonoBehaviour:
   - name: 7
     material: {fileID: 2100000, guid: 00a50cfef0cd18e48af6fe5364cb200f, type: 2}
   Obstacles: {fileID: 2102460779}
+  goals:
+  - {fileID: 2712046608560646924}
+  - {fileID: 8248212946879167582}
 --- !u!4 &968799539
 Transform:
   m_ObjectHideFlags: 0
@@ -5487,6 +5491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2abefa8e673984a938e56c3da0ce2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 4
+  Subject: {fileID: 8528408917172876221}
   OnButtonActivate:
     m_PersistentCalls:
       m_Calls:
@@ -5729,6 +5735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2abefa8e673984a938e56c3da0ce2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 1
+  Subject: {fileID: 4227479022505537019}
   OnButtonActivate:
     m_PersistentCalls:
       m_Calls:
@@ -5883,7 +5891,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7306589229ea9084dafbab3e54065772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterTarget: {fileID: 8528408917172876221}
+  Subject: {fileID: 8528408917172876221}
+  HasBeenReached: 0
 --- !u!58 &2712046608560646925
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6372,7 +6381,7 @@ MonoBehaviour:
   rePlayer: {fileID: 4227479021267248965}
   recorder: {fileID: 4227479022137039637}
   spawnPoint: {fileID: 5983838931820823848}
-  spriteRenderer: {fileID: 8528408918895461696}
+  spriteRenderer: {fileID: 4227479022081071878}
   animator: {fileID: 4227479022081071877}
   speed: 4
   Acceleration: 2
@@ -6391,6 +6400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90b37a58f5b89c47b3566bde499b06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 1
   Subject: {fileID: 4227479022505537019}
 --- !u!4 &5983838931820823849
 Transform:
@@ -6698,7 +6708,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7306589229ea9084dafbab3e54065772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterTarget: {fileID: 4227479022505537019}
+  Subject: {fileID: 4227479022505537019}
+  HasBeenReached: 0
 --- !u!58 &8248212946879167583
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6792,7 +6803,7 @@ MonoBehaviour:
   animator: {fileID: 8528408918895461699}
   speed: 4
   Acceleration: 2
-  Color: 0
+  Color: 4
   IsDead: 0
   HasWon: 0
 --- !u!58 &8528408917172876222
@@ -7141,6 +7152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90b37a58f5b89c47b3566bde499b06c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: 4
   Subject: {fileID: 8528408917172876221}
 --- !u!4 &8789154661371471649
 Transform:

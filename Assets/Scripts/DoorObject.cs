@@ -14,6 +14,9 @@ public class DoorObject : MonoBehaviour
     {
         InitialState = IsOpen;
         ResetDoor();
+    }
+    private void Start()
+    {
         GameController.Instance.SubOnTurnEnd(ResetDoor);
     }
 

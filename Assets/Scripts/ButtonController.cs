@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class ButtonController : MonoBehaviour
 {
+    [SerializeField] private ColorName color;
+    [SerializeField] private PlayableCharacter Subject;
     [SerializeField] private UnityEvent OnButtonActivate;
     [SerializeField] private UnityEvent OnButtonDeActivate;
     [SerializeField] private bool WasPressed = false;
@@ -17,13 +19,16 @@ public class ButtonController : MonoBehaviour
     {
         InitialState = WasPressed;
         ResetButton();
+    }
+    private void Start()
+    {
         GameController.Instance.SubOnTurnEnd(ResetButton);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayableCharacter c = collision.gameObject.GetComponent<PlayableCharacter>();
-        if (c != null) PressButton();
+        if (c == Subject) PressButton();
     }
 
     public void PressButton()
@@ -57,4 +62,18 @@ public class ButtonController : MonoBehaviour
     }
 
     private void OnDisable() => GameController.Instance.UnSubOnTurnEnd(ResetButton);
+
+
+    // ===== Debug ===== //
+
+    private void OnValidate()
+    {
+        foreach (var character in FindObjectsOfType<PlayableCharacter>())
+        {
+            if (character.Color == this.color)
+            {
+                Subject = character;
+            }
+        }
+    }
 }

@@ -11,6 +11,9 @@ public class InputController : Singleton<InputController>
     public Vector2 Movement;
     public bool LeftClick => Input.actions["LeftClick"].WasPerformedThisFrame();
     public bool RightClick => Input.actions["RightClick"].WasPerformedThisFrame();
+    public bool Enter => Input.actions["Enter"].WasPerformedThisFrame();
+    public bool Next => Input.actions["Next"].WasPerformedThisFrame();
+    public bool Undo => Input.actions["Undo"].WasPerformedThisFrame();
 
     public void OnMove(InputAction.CallbackContext callback)
     {

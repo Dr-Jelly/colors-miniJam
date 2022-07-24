@@ -20,8 +20,8 @@ public class PlayableCharacter : MonoBehaviour
 
     [Header("Other Parameters")]
     [SerializeField] public ColorName Color;
-    [SerializeField] private bool IsDead = false;
-    [SerializeField] private bool HasWon = false;
+    [SerializeField] public bool IsDead = false;
+    [SerializeField] public bool HasWon = false;
 
     // =====[ References ]====== //
     public void StartRecordingInput() => recorder.StartRecording();
@@ -67,33 +67,58 @@ public class PlayableCharacter : MonoBehaviour
         {
             this.Die();
             otherCharacter.Die();
+
+            if (this == GameController.Instance.CurrentChar())
+                Invoke("Undo", 2f);
         }
     }
+    private void Undo() => GameController.Instance.UndoTurn();
 
     // =====[ Events ]====== //
+
+    public void Stop()
+    {
+        rb.velocity = Vector2.zero;
+        Face(Vector2.zero);
+    }
 
     public void Reset()
     {
         IsDead = false;
         HasWon = false;
+        Stop();
+        animator.SetBool("IsMoving", false);
         animator.SetBool("Dead", false);
         animator.SetBool("Won", false);
         spawnPoint.Reset();
+        rePlayer.Reset();
+        recorder.StopRecording();
     }
 
     public void Die()
     {
-        IsDead = true;
-        rb.velocity = Vector2.zero;
-        Face(Vector2.zero);
+        IsDead = true; 
+        Stop();
         animator.SetBool("Dead", true);
     }
 
     public void Win()
     {
         HasWon = true;
-        rb.velocity = Vector2.zero;
-        Face(Vector2.zero);
+        Stop();
         animator.SetBool("Won", true);
+    }
+
+    // =====[ Debug ]====== //
+    private void OnValidate()
+    {
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        foreach (var spawn in FindObjectsOfType<SpawnPointController>())
+        {
+            if (spawn.color == this.Color)
+            {
+                spawnPoint = spawn;
+            }
+        }
     }
 }

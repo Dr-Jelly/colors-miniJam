@@ -17,6 +17,11 @@ public class RePlayer : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        IsReplaying = false;
+    }
+
     public void FixedUpdate()
     {
         if (IsReplaying)

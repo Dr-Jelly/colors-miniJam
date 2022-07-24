@@ -14,7 +14,21 @@ public class GameController : Singleton<GameController>
 
     private void Update()
     {
-        
+        if (InputController.Instance.Next)
+        {
+            CurrentChar().Die();
+            Invoke("NextChar", 2f);
+        }
+
+        if (InputController.Instance.Undo)
+        {
+            UndoTurn();
+        }
+
+        if (InputController.Instance.Enter && CheckWinCondition())
+        {
+            NextLevel(NextLevelName);
+        }
     }
 
     private void FixedUpdate()
@@ -54,7 +68,6 @@ public class GameController : Singleton<GameController>
     {
         // Replay all previous characters.
         if (CurrentChar() == null) return; //Leave if index is out of bounds
-        CurrentChar().StopRecordingInput();
 
         foreach (var character in CharacterList)
         {
@@ -86,6 +99,28 @@ public class GameController : Singleton<GameController>
     private UnityEvent TurnEnded = new UnityEvent();
     public void SubOnTurnEnd(UnityAction action) => TurnEnded.AddListener(action);
     public void UnSubOnTurnEnd(UnityAction action) => TurnEnded.RemoveListener(action);
+    public string NextLevelName;
+
+    public void UndoTurn()
+    {
+        if (CurrentChar() == null) return; //Leave if index is out of bounds
+
+        foreach (var character in CharacterList)
+        {
+            character.Reset();
+        }
+        for (int i = 0; i < CurrentCharacterIndex; i++)
+        {
+            CharacterList[i].StartRePlayingInput();
+        }
+        TurnEnded?.Invoke();
+        CurrentChar().StartRecordingInput();
+    }
+
+    public void NextLevel(string levelName)
+    {
+        SceneController.Instance.ChangeScene(levelName);
+    }
 
     // ----------------- Colors
     public List<ColorCapsule> Colors;
@@ -107,6 +142,45 @@ public class GameController : Singleton<GameController>
     {
         Obstacles.gameObject.GetComponent<Renderer>().material = GetColorMaterial(colorName);
     }
+
+    // ----------------- Goals
+    public List<GoalController> goals;
+
+    public void GoalReached()
+    {
+        if (CheckWinCondition())
+        {
+            foreach (var character in CharacterList)
+            {
+                if (!character.HasWon) character.Die();
+            }
+            Invoke("NextChar", 2f);
+        }
+        else
+        {
+            if (CharacterList[CurrentCharacterIndex] != null)
+            {
+                Invoke("NextChar", 2f);
+            }
+        }
+    }
+
+    public bool CheckWinCondition()
+    {
+        foreach (var goal in goals)
+        {
+            if (goal.HasBeenReached == false) return false;
+        }
+        return true;
+    }
+
+    // ----------------- Debug
+
+    private void OnValidate()
+    {
+        goals = new List<GoalController>(FindObjectsOfType<GoalController>());
+    }
+
 }
 
 [Serializable]

@@ -23,7 +23,12 @@ public class Recorder : MonoBehaviour
             recording = new Queue<Vector2>();
             IsRecording = true;
         }
-        else print("Recorder already has an input recording!");
+        else
+        {
+            recording = new Queue<Vector2>();
+            IsRecording = true;
+            Debug.LogWarning("Recording was overwritten");
+        }
     }
 
     public void StopRecording()
