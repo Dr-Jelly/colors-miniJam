@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,7 +64,14 @@ public class GameController : Singleton<GameController>
         TurnEnded?.Invoke();
 
         CurrentCharacterIndex++;
-        CurrentChar()?.StartRecordingInput();
+        if (CurrentChar() == null)
+        {
+            PaintObstacles(ColorName.RAINBOW);
+            return;
+        }
+
+        CurrentChar().StartRecordingInput();
+        PaintObstacles(CurrentChar().Color);
     }
 
     public void CharacterUpdate()
@@ -75,4 +83,44 @@ public class GameController : Singleton<GameController>
     private UnityEvent TurnEnded = new UnityEvent();
     public void SubOnTurnEnd(UnityAction action) => TurnEnded.AddListener(action);
     public void UnSubOnTurnEnd(UnityAction action) => TurnEnded.RemoveListener(action);
+
+    // ----------------- Colors
+    public List<ColorCapsule> Colors;
+
+    public Material GetColorMaterial(ColorName name)
+    {
+        foreach (var color in Colors)
+        {
+            if (color.name == name) return color.material;
+        }
+        print("No Color found");
+        return null;
+    }
+
+    // ----------------- TileMaps
+    public GameObject Obstacles;
+
+    public void PaintObstacles(ColorName colorName)
+    {
+        Obstacles.gameObject.GetComponent<Renderer>().material = GetColorMaterial(colorName);
+    }
+}
+
+[Serializable]
+public struct ColorCapsule
+{
+    public ColorName name;
+    public Material material;
+}
+
+public enum ColorName
+{
+    Green,
+    Blue,
+    Purple,
+    Pink,
+    Red,
+    Orange,
+    Yellow,
+    RAINBOW
 }

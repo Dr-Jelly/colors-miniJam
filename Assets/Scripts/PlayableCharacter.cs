@@ -18,6 +18,7 @@ public class PlayableCharacter : MonoBehaviour
     [SerializeField] private float Acceleration;
 
     [Header("Other Parameters")]
+    [SerializeField] public ColorName Color;
     [SerializeField] private bool IsDead = false;
     [SerializeField] private bool HasWon = false;
 
